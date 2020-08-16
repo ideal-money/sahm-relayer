@@ -109,6 +109,7 @@ def send_eidi(addr):
 
 def claim_sahm(addrs, parent, r, s, v):
     global nonce
+    parent = Web3.toChecksumAddress(parent)
     addrs = list(map(Web3.toChecksumAddress, addrs))
     for addr in addrs:
         if sahm.functions.claimed(addr).call():
